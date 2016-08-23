@@ -1,0 +1,10 @@
+<header class="hero" data-th-style="'background-image: url(\'' + ${banner.backgroundImageURL} + '\')'" style="">
+	<div class="container">
+		<div class="intro-text">
+			<div class="intro-lead-in" data-th-utext="${portal.processHtml({'_value=' + banner.title})}">Welcome To Our Studio!</div>
+			<div class="intro-heading" data-th-utext="${portal.processHtml({'_value=' + banner.body})}">It's Nice To Meet You</div>
+			<a data-th-if="${banner.buttonReadMoreText}" data-th-text="${banner.buttonReadMoreText}"  data-th-href="${ banner.buttonReadMoreLink }"  href="#" class="page-scroll btn btn-xl">Tell Me More</a>
+		</div>
+	</div>
+</header>
+

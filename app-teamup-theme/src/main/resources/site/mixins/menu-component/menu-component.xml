@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mixin>
+<display-name>Show in menu</display-name>
+<items>
+  <item-set name="showMenu">
+    <label>Show in menu</label>
+    <occurrences minimum="0" maximum="0"/>
+    <items>
+      <input name="menuShow" type="CheckBox">
+        <label>Show in menu</label>
+        <occurrences minimum="0" maximum="1"/>
+      </input>
+    </items>
+  </item-set>
+</items>
+</mixin>

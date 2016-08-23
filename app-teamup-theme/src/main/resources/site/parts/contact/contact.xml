@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part>
+  <display-name>Contact</display-name>
+  <config>
+    <item-set name="menuComponent">
+      <label>Menu</label>
+      <items>
+        <input name="showInMenu" type="CheckBox">
+          <label>Show in menu</label>
+          <occurrences minimum="0" maximum="1"/>
+        </input>
+        <input name="showInMenuIcon" type="TextLine">
+          <label>Icon</label>
+          <occurrences minimum="0" maximum="1"/>
+        </input>
+      </items>
+      <occurrences minimum="1" maximum="1"/>
+    </item-set>
+    <input type="TextLine" name="title">
+      <label>Title</label>
+      <help-text>Title of the part</help-text>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+    <input type="TextLine" name="preface">
+      <label>Short preface</label>
+      <help-text></help-text>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+    <input type="HtmlArea" name="contactInformation">
+      <label>Contact information</label>
+      <help-text></help-text>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+
+    <input name="contentDestinationKey" type="ContentSelector">
+      <label>Contact form save destination</label>
+      <occurrences minimum="0" maximum="0"/>
+      <config>
+        <relationship>system:reference</relationship>
+     </config>
+    </input>
+
+  </config>
+</part>

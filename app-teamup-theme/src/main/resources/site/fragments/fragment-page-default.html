@@ -1,0 +1,53 @@
+<head th:fragment="head" >
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link data-th-href="${portal.assetUrl({'_path=font-awesome/css/font-awesome.min.css'})}" href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link data-th-href="${portal.assetUrl({'_path=dataTables/datatables.min.css'})}"  rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+    <link data-th-href="${portal.assetUrl({'_path=metisMenu/1.1.2/metisMenu.min.css'})}" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.5.2/metisMenu.min.css">
+    <link data-th-href="${portal.assetUrl({'_path=bootstrap/3.3.6/css/bootstrap.min.css'})}" href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link data-th-href="${portal.assetUrl({'_path=css/all.min.css'})}" href="css/all.min.css" rel="stylesheet" type="text/css"/>
+
+    <script data-th-src="${portal.assetUrl({'_path=jquery/1.11.3/jquery.min.js'})}"  src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<div th:fragment="scripts" data-th-remove="tag">
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script data-th-src="${portal.assetUrl({'_path=bootstrap/3.3.6/js/bootstrap.min.js'})}" src="../assets/js/bootstrap.min.js"></script>
+    <script data-th-src="${portal.assetUrl({'_path=bootstrap/3.3.6/js/dropdown.js'})}" src="../assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script data-th-src="${portal.assetUrl({'_path=js/jqBootstrapValidation.js'})}" src="../assets/js/custom.js"></script>
+
+    <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=dataTables/datatables.min.js'})}" src="DataTables/datatables.min.js"></script>
+    <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=dataTables/DataTables-1.10.11/js/jquery.dataTables.min.js'})}" src="DataTables/datatables.min.js"></script>
+
+    <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=dataTables/DataTables-1.10.11/js/dataTables.bootstrap.min.js'})}" src="DataTables/datatables.min.js"></script>
+    <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=dataTables/Responsive-2.0.2/js/dataTables.responsive.min.js'})}" src="DataTables/datatables.min.js"></script>
+    <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=dataTables/Responsive-2.0.2/js/responsive.bootstrap.min.js'})}" src="DataTables/datatables.min.js"></script>
+
+    <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=dataTables/Buttons-1.1.2/js/dataTables.buttons.min.js'})}" src="DataTables/datatables.min.js"></script>
+    <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=dataTables/Buttons-1.1.2/js/buttons.bootstrap.min.js'})}" src="DataTables/datatables.min.js"></script>
+    <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=dataTables/Buttons-1.1.2/js/buttons.html5.min.js'})}" src="DataTables/datatables.min.js"></script>
+
+    <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=metisMenu/1.1.2/metisMenu.min.js'})}" src="DataTables/datatables.min.js"></script>
+    <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=js/response.min.js'})}" src=""></script>
+
+    <script data-th-src="${portal.assetUrl({'_path=js/contact_me.js'})}" src="../assets/js/contact_me.js"></script>
+    <script data-th-src="${portal.assetUrl({'_path=js/default.js'})}" src="../assets/js/default.js"></script>
+
+    <script data-th-inline="javascript">
+        /*<![CDATA[*/
+        window,servicesUrl = [[${portal.serviceUrl({'_service='})}]]
+        window.user = [[${ user }]];
+        /*]]>*/
+    </script>
+</div>

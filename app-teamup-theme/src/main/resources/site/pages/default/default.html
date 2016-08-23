@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-th-replace="no.item.xp.teamup.theme:/site/fragments/fragment-page-default.html :: head"></head>
+<body data-spy="scroll">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" class="sidebar-nav-shadow fill-height">
+            <div data-th-replace="no.item.xp.teamup.theme:/site/fragments/fragment-site-menu.html :: menu-site-sidebar-left"></div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div id="panelMain"  class="col-sm-12" role="main" data-th-attr="data-portal-region=${mainRegion.name}">
+                    <div data-th-replace="no.item.xp.teamup.theme:/site/fragments/fragment-site-menu.html :: menu-site-top"></div>
+
+                    <div  class="page-main">
+                        <div data-th-each="component, rowStat : ${mainRegion.components}" data-th-remove="tag">
+                            <div data-portal-component="${component.path}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /*Page Content -->
+    </div>
+    <div data-th-replace="no.item.xp.teamup.theme:/site/fragments/fragment-page-default.html :: scripts"></div>
+</body>
+</html>

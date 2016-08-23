@@ -1,0 +1,81 @@
+<div th:fragment="menu-site-top" id="container-top-nav" class="container-fluid">
+    <div id="navbar-main-top" class="row hidden-xs">
+        <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav left">
+                <li>
+                    <a href="#" title="Toogle left menu" id="toggle-nav">
+                        <i class="fa fa-2x fa-bars" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li data-th-each="menuItem : ${siteMenuTopItems}" data-th-classappend="${menuItem.path == currentPath ? 'active' : ''}" >
+                    <!-- Shows a dropdown menu for menuitem type "folder") -->
+                    <a data-th-if="${menuItem.type == 'base:folder'}" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span data-th-text="${menuItem.menuName} ?: ${menuItem.displayName}"></span> <span class="caret"></span></a>
+
+                    <ul data-th-if="${menuItem.hasChildren}" class="dropdown-menu">
+                        <li data-th-each="submenuItem : ${menuItem.children}">
+                            <a href="#" data-th-href="${portal.pageUrl({'_path=' + menuItem.path})}"
+                               data-th-text="${submenuItem.menuName} ?: ${submenuItem.displayName}">Page title</a>
+                        </li>
+                    </ul>
+
+                    <a data-th-if="${menuItem.type != 'base:folder'}" href="#" data-th-href="${portal.pageUrl({'_id=' + menuItem.id})}"
+                       data-th-text="${menuItem.menuName} ?: ${menuItem.displayName}">Page
+                        title</a>
+                </li>
+                <li>
+                    <a href="#" data-th-title="${ 'User logged in: ' + user.displayName }" title="">
+                        <i class="fa fa-user" aria-hidden="true"></i> <span data-th-text="${ user.displayName }"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div id="navbar-main-top" class="row visible-xs">
+            <nav class="navbar navbar-default ">
+                <div class="container">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#" title="Toogle left menu" id="toggle-nav-small-devices">
+                                <i class="fa fa-2x fa-bars" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    </div>
+</div>
+
+<div th:fragment="menu-site-sidebar-left">
+    <div class="sidebar-left">
+        <img class="sidebar-left-logo" data-th-src="${portal.imageUrl({'_id=' + siteLogo, '_scale=block(90, 77)', '_format=jpeg', '_quality=100'})}" src="../images/logo.png" alt="" />
+
+        <div class="sidebar-nav">
+            <ul class="nav metismenu" id="side-menu">
+                <li data-th-each="menuItem : ${menuItems}" data-th-classappend="${menuItem.path == currentPath ? 'active' : ''}" >
+                    <!-- Shows a dropdown menu for menuitem type "folder") -->
+                    <a data-th-if="${menuItem.hasChildren}" href="#"><i class="fa fa-th-large"></i> <span class="nav-label" data-th-text="${menuItem.menuName} ?: ${menuItem.displayName}">Menu Levels </span><span data-th-if="${menuItem.hasChildren}" class="fa arrow"></span></a>
+                    <a data-th-if="${!menuItem.hasChildren}" data-th-href="${ menuItem.path }" href="#"><i class="fa fa-th-large"></i> <span class="nav-label" data-th-text="${menuItem.menuName} ?: ${menuItem.displayName}">Menu Levels </span></a>
+
+                    <ul data-th-if="${menuItem.hasChildren}" class="nav collapse nav-second-level">
+                        <li data-th-each="submenuItem : ${menuItem.children}">
+                            <a href="#" data-th-href="${portal.pageUrl({'_path=' + menuItem.path})}" >
+                                <span data-th-text="${submenuItem.menuName} ?: ${submenuItem.displayName}"></span><span data-th-if="${submenuItem.hasChildren}" class="fa arrow"></span>
+                            </a>
+
+                            <ul data-th-if="${submenuItem.hasChildren}" class="nav collapse nav-third-level">
+                                <li data-th-each="submenuItem2 : ${submenuItem.children}">
+                                    <a href="#" data-th-href="${portal.pageUrl({'_path=' + menuItem.path})}"
+                                       data-th-text="${submenuItem2.menuName} ?: ${submenuItem2.displayName}">Page title</a>
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
