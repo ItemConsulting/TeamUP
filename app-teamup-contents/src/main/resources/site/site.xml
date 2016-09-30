@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+<display-name>TeamUp Contents </display-name>
+<info>TeamUP Contents  Web App</info>
+<url>http://www.item.no/</url>
+<vendor>
+  <name>Runar Brastad</name>
+  <url>http://www.item.no</url>
+</vendor>
+<config>
+  <field-set name="settings">
+    <label>Site Settings</label>
+    <items>
+      <input type="TextLine" name="copyright">
+        <label>Copyright text</label>
+        <immutable>false</immutable>
+        <indexed>true</indexed>
+        <custom-text/>
+        <help-text/>
+        <occurrences minimum="0" maximum="1"/>
+      </input>
+      <input type="Htmlarea" name="footerText">
+        <label>Footer text</label>
+        <immutable>false</immutable>
+        <indexed>true</indexed>
+        <custom-text/>
+        <help-text/>
+        <occurrences minimum="0" maximum="1"/>
+      </input>
+      <input type="TextLine" name="siteText">
+        <label>Site alternative text</label>
+        <immutable>false</immutable>
+        <indexed>true</indexed>
+        <custom-text/>
+        <help-text/>
+        <occurrences minimum="0" maximum="1"/>
+      </input>
+      <input type="ImageSelector" name="siteLogo">
+        <label>Site logo image</label>
+        <immutable>false</immutable>
+        <indexed>false</indexed>
+        <occurrences minimum="0" maximum="1"/>
+        <config></config>
+        <help-text></help-text>
+      </input>
+    </items>
+  </field-set>
+  <field-set name="menu">
+    <label>Menu settings</label>
+    <items>
+      <input name="menuTop" type="ContentSelector">
+        <label>Menu location top</label>
+        <occurrences minimum="0" maximum="1"/>
+        <config>
+          <relationshipType>system:reference</relationshipType>
+        </config>
+      </input>
+      <input name="menuLeft" type="ContentSelector">
+        <label>Menu location left</label>
+        <occurrences minimum="0" maximum="1"/>
+        <config>
+          <relationshipType>system:reference</relationshipType>
+        </config>
+      </input>
+    </items>
+  </field-set>
+  <field-set name="social">
+    <label>Social links</label>
+    <items>
+      <input type="TextLine" name="facebook">
+        <label>Facebook link</label>
+        <immutable>false</immutable>
+        <indexed>true</indexed>
+        <custom-text/>
+        <help-text/>
+        <occurrences minimum="0" maximum="1"/>
+      </input>
+      <input type="TextLine" name="linkedin">
+        <label>Linkedin link</label>
+        <immutable>false</immutable>
+        <indexed>true</indexed>
+        <custom-text/>
+        <help-text/>
+        <occurrences minimum="0" maximum="1"/>
+      </input>
+      <input type="TextLine" name="twitter">
+        <label>Twitter link</label>
+        <immutable>false</immutable>
+        <indexed>true</indexed>
+        <custom-text/>
+        <help-text/>
+        <occurrences minimum="0" maximum="1"/>
+      </input>
+    </items>
+  </field-set>
+</config>
+<x-data mixin="menu-item"/>
+</site>

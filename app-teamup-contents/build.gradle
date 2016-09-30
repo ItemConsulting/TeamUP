@@ -1,0 +1,92 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven {
+            url 'http://repo.enonic.com/public'
+        }
+        maven {
+            url 'https://dl.bintray.com/rbrastad/XP'
+        }
+
+
+    }
+
+    dependencies {
+        classpath "com.enonic.xp:gradle-plugin:${xpVersion}"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
+        classpath 'com.eriwen:gradle-css-plugin:2.12.0'
+    }
+}
+
+apply plugin: 'maven'
+apply plugin: 'com.enonic.xp.app'
+apply plugin: 'css'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'idea'
+
+app {
+    name = project.appName
+    displayName = project.displayName
+    vendorName = 'Item Consulting AS'
+    vendorUrl = 'http://www.item.no'
+}
+
+dependencies {
+    compile "com.enonic.xp:core-api:${xpVersion}"
+    compile "com.enonic.xp:portal-api:${xpVersion}"
+    include "com.enonic.xp:lib-content:${xpVersion}"
+    include "com.enonic.xp:lib-context:${xpVersion}"
+    include "com.enonic.xp:lib-portal:${xpVersion}"
+    include "com.enonic.xp:lib-thymeleaf:${xpVersion}"
+    include "com.enonic.xp:lib-mail:${xpVersion}"
+    include "com.enonic.xp:lib-auth:${xpVersion}"
+    include "com.enonic.xp:lib-http-client:${xpVersion}"
+
+    include "com.enonic.lib:util:1.1.1"
+    include "com.enonic.lib:menu:1.1.1"
+
+    include 'no.rbrastad.xp:lib2render:0.6.5'
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    maven {
+        url 'http://repo.enonic.com/public'
+    }
+    maven {
+        url 'https://dl.bintray.com/rbrastad/XP'
+    }
+}
+
+// Declare your sources
+css.source {
+    dev {
+        css {
+            srcDir  "src/main/resources/assets/css"
+            include "*.css"
+            exclude "*.min.css","all.css","all-min.css"
+        }
+    }
+}
+
+// Specify a collection of files to be combined, then minified and finally GZip compressed.
+combineCss {
+    source = css.source.dev.css.files
+    dest = "src/main/resources/assets/css/all.css"
+}
+
+minifyCss {
+    source = combineCss
+    dest = "src/main/resources/assets/css/all.min.css"
+    yuicompressor { // Optional
+        lineBreakPos = -1
+    }
+}
+
+lesscss {
+    source =  "src/main/resources/assets/less"
+    dest = "src/main/resources/assets/css"
+    include "**/*.less", "**/*.js"
+}
